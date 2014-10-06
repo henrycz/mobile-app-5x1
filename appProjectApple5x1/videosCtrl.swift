@@ -1,27 +1,28 @@
 //
-//  podcastCtrl.swift
+//  videosCtrl.swift
 //  appProjectApple5x1
 //
-//  Created by Nelkit on 29/09/14.
+//  Created by Nelkit on 05/10/14.
 //  Copyright (c) 2014 Grupo 5x1. All rights reserved.
 //
 
 import UIKit
 
-class podcastCtrl: UIViewController,SideMenuDelegate {
+class videosCtrl: UIViewController, SideMenuDelegate {
 
     var sideMenu : SideMenu?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sideMenu = SideMenu(sourceView: self.view, menuData: ["Inicio", "Podcast", "Videos", "Social", "Conócenos", "Contacto"], iconData: ["icon-home.png", "icon-podcast.png", "icon-videos.png", "icon-social.png", "icon-conocenos.png", "icon-contact.png"])
+        sideMenu = SideMenu(sourceView: self.view)
         sideMenu!.delegate = self
         
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func toggleMenu(sender: AnyObject) {

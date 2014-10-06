@@ -17,7 +17,7 @@
                BlueprintIdentifier = "02C57CE719D6767E00E15281"
                BuildableName = "appProjectApple5x1.app"
                BlueprintName = "appProjectApple5x1"
-               ReferencedContainer = "container:appProjectApple5x1.xcodeproj">
+               ReferencedContainer = "container:Apple 5x1.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "02C57CFF19D6767F00E15281"
                BuildableName = "appProjectApple5x1Tests.xctest"
                BlueprintName = "appProjectApple5x1Tests"
-               ReferencedContainer = "container:appProjectApple5x1.xcodeproj">
+               ReferencedContainer = "container:Apple 5x1.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "02C57CFF19D6767F00E15281"
                BuildableName = "appProjectApple5x1Tests.xctest"
                BlueprintName = "appProjectApple5x1Tests"
-               ReferencedContainer = "container:appProjectApple5x1.xcodeproj">
+               ReferencedContainer = "container:Apple 5x1.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "02C57CE719D6767E00E15281"
             BuildableName = "appProjectApple5x1.app"
             BlueprintName = "appProjectApple5x1"
-            ReferencedContainer = "container:appProjectApple5x1.xcodeproj">
+            ReferencedContainer = "container:Apple 5x1.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "02C57CE719D6767E00E15281"
             BuildableName = "appProjectApple5x1.app"
             BlueprintName = "appProjectApple5x1"
-            ReferencedContainer = "container:appProjectApple5x1.xcodeproj">
+            ReferencedContainer = "container:Apple 5x1.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,7 +96,7 @@
             BlueprintIdentifier = "02C57CE719D6767E00E15281"
             BuildableName = "appProjectApple5x1.app"
             BlueprintName = "appProjectApple5x1"
-            ReferencedContainer = "container:appProjectApple5x1.xcodeproj">
+            ReferencedContainer = "container:Apple 5x1.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

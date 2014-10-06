@@ -25,11 +25,9 @@ class SideMenu : NSObject, MenuTableViewControllerDelegate {
     var delegate : SideMenuDelegate?
     var isMenuOpen : Bool = false
     
-    init(sourceView: UIView, menuData:Array<String>, iconData:Array<String>) {
+    init(sourceView: UIView) {
         super.init()
         self.sourceView = sourceView
-        self.sideMenuTableViewController.tableData = menuData
-        self.sideMenuTableViewController.iconData = iconData
         
         self.setupMenuView()
         

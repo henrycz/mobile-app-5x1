@@ -55,6 +55,12 @@
 		0290196A19D680520014E771 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290196719D680520014E771 /* SideMenu.swift */; };
 		0290196B19D680520014E771 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290196819D680520014E771 /* MenuTableViewController.swift */; };
 		0290196C19D680520014E771 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0290196819D680520014E771 /* MenuTableViewController.swift */; };
+		02B3355119E1B8B300B389C5 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3354F19E1B8B300B389C5 /* setting.png */; };
+		02B3355219E1B8B300B389C5 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3355019E1B8B300B389C5 /* setting@2x.png */; };
+		02B3355419E1F97000B389C5 /* apple5x1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3355319E1F97000B389C5 /* apple5x1@2x.png */; };
+		02B3355619E235AC00B389C5 /* videosCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3355519E235AC00B389C5 /* videosCtrl.swift */; };
+		02B3355819E23B5700B389C5 /* socialCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3355719E23B5700B389C5 /* socialCtrl.swift */; };
+		02B3355A19E23F2700B389C5 /* conocenosCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3355919E23F2700B389C5 /* conocenosCtrl.swift */; };
 		02C57CEE19D6767E00E15281 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C57CED19D6767E00E15281 /* AppDelegate.swift */; };
 		02C57CF119D6767E00E15281 /* appProjectApple5x1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02C57CEF19D6767E00E15281 /* appProjectApple5x1.xcdatamodeld */; };
 		02C57CF319D6767E00E15281 /* mainCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C57CF219D6767E00E15281 /* mainCtrl.swift */; };
@@ -62,6 +68,7 @@
 		02C57CF819D6767E00E15281 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C57CF719D6767E00E15281 /* Images.xcassets */; };
 		02C57CFB19D6767E00E15281 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C57CF919D6767E00E15281 /* LaunchScreen.xib */; };
 		02C57D0719D6767F00E15281 /* appProjectApple5x1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C57D0619D6767F00E15281 /* appProjectApple5x1Tests.swift */; };
+		02D326B719DB596B0036BB69 /* detailMainCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D326B619DB596B0036BB69 /* detailMainCtrl.swift */; };
 		02DBBDA219D78E820060CCE1 /* apple5x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02DBBDA119D78E820060CCE1 /* apple5x1.png */; };
 		02DBBDA319D78E820060CCE1 /* apple5x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02DBBDA119D78E820060CCE1 /* apple5x1.png */; };
 		02DBBDA519D7A4E00060CCE1 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02DBBDA419D7A4E00060CCE1 /* menu-icon.png */; };
@@ -113,6 +120,12 @@
 		0274F3C819D9638B00A04921 /* icon-videos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-videos@2x.png"; sourceTree = "<group>"; };
 		0290196719D680520014E771 /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		0290196819D680520014E771 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		02B3354F19E1B8B300B389C5 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		02B3355019E1B8B300B389C5 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
+		02B3355319E1F97000B389C5 /* apple5x1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple5x1@2x.png"; sourceTree = "<group>"; };
+		02B3355519E235AC00B389C5 /* videosCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = videosCtrl.swift; sourceTree = "<group>"; };
+		02B3355719E23B5700B389C5 /* socialCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = socialCtrl.swift; sourceTree = "<group>"; };
+		02B3355919E23F2700B389C5 /* conocenosCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conocenosCtrl.swift; sourceTree = "<group>"; };
 		02C57CE819D6767E00E15281 /* appProjectApple5x1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appProjectApple5x1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C57CEC19D6767E00E15281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C57CED19D6767E00E15281 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,13 +137,14 @@
 		02C57D0019D6767F00E15281 /* appProjectApple5x1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appProjectApple5x1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C57D0519D6767F00E15281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C57D0619D6767F00E15281 /* appProjectApple5x1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appProjectApple5x1Tests.swift; sourceTree = "<group>"; };
+		02D326B619DB596B0036BB69 /* detailMainCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailMainCtrl.swift; sourceTree = "<group>"; };
 		02DBBDA119D78E820060CCE1 /* apple5x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple5x1.png; sourceTree = "<group>"; };
 		02DBBDA419D7A4E00060CCE1 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		02DBBDA719D7ABEB0060CCE1 /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
 		02DBBDAA19D7B2BF0060CCE1 /* search-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon@2x.png"; sourceTree = "<group>"; };
 		02DBBDAB19D7B2BF0060CCE1 /* search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-icon.png"; sourceTree = "<group>"; };
 		02DBBDB019D7B83F0060CCE1 /* img-notice-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img-notice-test.png"; sourceTree = "<group>"; };
-		02F91A9919D9E29200DDE418 /* podcastCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = podcastCtrl.swift; path = ../podcastCtrl.swift; sourceTree = "<group>"; };
+		02F91A9919D9E29200DDE418 /* podcastCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = podcastCtrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,14 +184,14 @@
 			name = "icon-menu";
 			sourceTree = "<group>";
 		};
-		0290196619D6802C0014E771 /* includes librarys */ = {
+		0290196619D6802C0014E771 /* librerias Externas */ = {
 			isa = PBXGroup;
 			children = (
 				0274F37919D8F9B000A04921 /* SwiftyJSON.swift */,
 				0290196719D680520014E771 /* SideMenu.swift */,
 				0290196819D680520014E771 /* MenuTableViewController.swift */,
 			);
-			name = "includes librarys";
+			name = "librerias Externas";
 			sourceTree = "<group>";
 		};
 		02C57CDF19D6767E00E15281 = {
@@ -201,11 +215,15 @@
 		02C57CEA19D6767E00E15281 /* appProjectApple5x1 */ = {
 			isa = PBXGroup;
 			children = (
-				02DBBDA019D78E6E0060CCE1 /* recursos */,
-				0290196619D6802C0014E771 /* includes librarys */,
+				02DBBDA019D78E6E0060CCE1 /* recursos graficos */,
+				0290196619D6802C0014E771 /* librerias Externas */,
 				02C57CED19D6767E00E15281 /* AppDelegate.swift */,
 				02C57CF219D6767E00E15281 /* mainCtrl.swift */,
+				02D326B619DB596B0036BB69 /* detailMainCtrl.swift */,
 				02F91A9919D9E29200DDE418 /* podcastCtrl.swift */,
+				02B3355519E235AC00B389C5 /* videosCtrl.swift */,
+				02B3355719E23B5700B389C5 /* socialCtrl.swift */,
+				02B3355919E23F2700B389C5 /* conocenosCtrl.swift */,
 				02C57CF419D6767E00E15281 /* Main.storyboard */,
 				02C57CF719D6767E00E15281 /* Images.xcassets */,
 				02C57CF919D6767E00E15281 /* LaunchScreen.xib */,
@@ -240,28 +258,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		02DBBDA019D78E6E0060CCE1 /* recursos */ = {
+		02DBBDA019D78E6E0060CCE1 /* recursos graficos */ = {
 			isa = PBXGroup;
 			children = (
 				0274F3BC19D9637100A04921 /* icon-menu */,
-				0274F38E19D9489C00A04921 /* share-btn@2x.png */,
 				0274F38F19D9489C00A04921 /* share-btn.png */,
-				0274F38819D944BD00A04921 /* arrow-bottom@2x.png */,
+				0274F38E19D9489C00A04921 /* share-btn@2x.png */,
 				0274F38919D944BD00A04921 /* arrow-bottom.png */,
+				0274F38819D944BD00A04921 /* arrow-bottom@2x.png */,
+				0274F37E19D940B700A04921 /* btnOrderImageList.png */,
 				0274F37C19D940B700A04921 /* btnOrderImageList@2x.png */,
 				0274F37D19D940B700A04921 /* btnOrderImage.png */,
-				0274F37E19D940B700A04921 /* btnOrderImageList.png */,
 				0274F37F19D940B700A04921 /* btnOrderImage@2x.png */,
 				0274F36119D8CA2300A04921 /* sombra-notice.png */,
+				02DBBDAB19D7B2BF0060CCE1 /* search-icon.png */,
+				02DBBDAA19D7B2BF0060CCE1 /* search-icon@2x.png */,
+				02DBBDA419D7A4E00060CCE1 /* menu-icon.png */,
+				02DBBDA719D7ABEB0060CCE1 /* menu-icon@2x.png */,
+				02DBBDA119D78E820060CCE1 /* apple5x1.png */,
+				02B3355319E1F97000B389C5 /* apple5x1@2x.png */,
+				02B3354F19E1B8B300B389C5 /* setting.png */,
+				02B3355019E1B8B300B389C5 /* setting@2x.png */,
 				024816B319D7EE81005DAEC3 /* author_avatar_texts.png */,
 				02DBBDB019D7B83F0060CCE1 /* img-notice-test.png */,
-				02DBBDAA19D7B2BF0060CCE1 /* search-icon@2x.png */,
-				02DBBDAB19D7B2BF0060CCE1 /* search-icon.png */,
-				02DBBDA719D7ABEB0060CCE1 /* menu-icon@2x.png */,
-				02DBBDA419D7A4E00060CCE1 /* menu-icon.png */,
-				02DBBDA119D78E820060CCE1 /* apple5x1.png */,
 			);
-			name = recursos;
+			name = "recursos graficos";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +341,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 02C57CE319D6767E00E15281 /* Build configuration list for PBXProject "appProjectApple5x1" */;
+			buildConfigurationList = 02C57CE319D6767E00E15281 /* Build configuration list for PBXProject "Apple 5x1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -361,6 +382,7 @@
 				02C57CF819D6767E00E15281 /* Images.xcassets in Resources */,
 				0274F38619D940B800A04921 /* btnOrderImage@2x.png in Resources */,
 				0274F3CD19D9638B00A04921 /* icon-contact.png in Resources */,
+				02B3355219E1B8B300B389C5 /* setting@2x.png in Resources */,
 				0274F3DF19D9638B00A04921 /* icon-videos@2x.png in Resources */,
 				02DBBDA219D78E820060CCE1 /* apple5x1.png in Resources */,
 				0274F38419D940B800A04921 /* btnOrderImageList.png in Resources */,
@@ -369,9 +391,11 @@
 				0274F38219D940B800A04921 /* btnOrderImage.png in Resources */,
 				0274F39219D9489C00A04921 /* share-btn.png in Resources */,
 				0274F38A19D944BD00A04921 /* arrow-bottom@2x.png in Resources */,
+				02B3355419E1F97000B389C5 /* apple5x1@2x.png in Resources */,
 				0274F3D519D9638B00A04921 /* icon-podcast.png in Resources */,
 				02DBBDAE19D7B2BF0060CCE1 /* search-icon.png in Resources */,
 				0274F3C919D9638B00A04921 /* icon-conocenos.png in Resources */,
+				02B3355119E1B8B300B389C5 /* setting.png in Resources */,
 				02DBBDA519D7A4E00060CCE1 /* menu-icon.png in Resources */,
 				0274F3D719D9638B00A04921 /* icon-podcast@2x.png in Resources */,
 				0274F3D119D9638B00A04921 /* icon-home.png in Resources */,
@@ -419,9 +443,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C57CF319D6767E00E15281 /* mainCtrl.swift in Sources */,
+				02B3355819E23B5700B389C5 /* socialCtrl.swift in Sources */,
 				02C57CEE19D6767E00E15281 /* AppDelegate.swift in Sources */,
 				0290196B19D680520014E771 /* MenuTableViewController.swift in Sources */,
+				02B3355A19E23F2700B389C5 /* conocenosCtrl.swift in Sources */,
+				02B3355619E235AC00B389C5 /* videosCtrl.swift in Sources */,
 				02F91A9A19D9E29200DDE418 /* podcastCtrl.swift in Sources */,
+				02D326B719DB596B0036BB69 /* detailMainCtrl.swift in Sources */,
 				0274F37A19D8F9B000A04921 /* SwiftyJSON.swift in Sources */,
 				02C57CF119D6767E00E15281 /* appProjectApple5x1.xcdatamodeld in Sources */,
 				0290196919D680520014E771 /* SideMenu.swift in Sources */,
@@ -603,7 +631,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		02C57CE319D6767E00E15281 /* Build configuration list for PBXProject "appProjectApple5x1" */ = {
+		02C57CE319D6767E00E15281 /* Build configuration list for PBXProject "Apple 5x1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02C57D0819D6767F00E15281 /* Debug */,

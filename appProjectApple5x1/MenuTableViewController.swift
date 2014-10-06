@@ -15,8 +15,8 @@ protocol MenuTableViewControllerDelegate {
 class MenuTableViewController: UITableViewController {
 
     var delegate : MenuTableViewControllerDelegate?
-    var tableData : Array<String> = []
-    var iconData : Array<String> = []
+    var tableData : Array<String> = ["Inicio", "Podcast", "Videos", "Social", "Conócenos", "Contacto"]
+    var iconData : Array<String> = ["icon-home.png", "icon-podcast.png", "icon-videos.png", "icon-social.png", "icon-conocenos.png", "icon-contact.png"]
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -62,8 +62,17 @@ class MenuTableViewController: UITableViewController {
         case  1:
             let VCPodcast = SBMain.instantiateViewControllerWithIdentifier("podcastingSB") as UIViewController;
             self.showViewController(VCPodcast, sender: self)
+        case  2:
+            let VCVideos = SBMain.instantiateViewControllerWithIdentifier("videosSB") as UIViewController;
+            self.showViewController(VCVideos, sender: self)
+        case  3:
+            let VCSocial = SBMain.instantiateViewControllerWithIdentifier("socialSB") as UIViewController;
+            self.showViewController(VCSocial, sender: self)
+        case  4:
+            let VCConocenos = SBMain.instantiateViewControllerWithIdentifier("conocenosSB") as UIViewController;
+            self.showViewController(VCConocenos, sender: self)
         default:
-            println("is not a vowel or a consonant")
+            println("no hay ningun inciso propio del menu")
         }
 
         println(indexPath.row)
