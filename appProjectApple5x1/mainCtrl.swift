@@ -43,6 +43,11 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
         let logoApple5x1 = UIImage(named: "apple5x1.png")
         let imageViewLogo = UIImageView(image: logoApple5x1)
         self.navigationItem.titleView = imageViewLogo
+        
+        //border in GroupButtom
+        
+        groupButton.layer.borderWidth = 1.2;
+        groupButton.layer.borderColor = UIColor(red:226.0/255.0, green:226.0/255.0, blue:226.0/255.0,alpha:1).CGColor
     }
     
     func JSONrequest(urlPath: String) {
@@ -105,8 +110,20 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
     /////////////////////definiendo la estructura de la celda
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Celda") as UITableViewCell
+        cell.setNeedsDisplay()
         // usando el JSON que se obtuvo de internet y instanciandolo con la libreria swiftify para mejor manejo
         let json = JSON(object: self.dataJSON)
+        
+        //creando la estructura y efectos de la celda
+        if let containerNotice = cell.viewWithTag(6) as UIView! {
+            containerNotice.layer.cornerRadius = 3
+            containerNotice.clipsToBounds = true
+            containerNotice.layer.shadowColor = UIColor.blackColor().CGColor
+            containerNotice.layer.shadowOffset = CGSizeMake(15.0,15.0);
+            containerNotice.layer.borderWidth = 1.2;
+            containerNotice.layer.borderColor = UIColor(red:226.0/255.0, green:226.0/255.0, blue:226.0/255.0,alpha:1).CGColor
+        }
+        
         
         //obteniendo tamaño de la pantalla
         let screenWidth = screenSize.width
@@ -136,7 +153,8 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
         //colocando el titulo de la noticia
         if let titleNotice = cell.viewWithTag(1) as? UITextView {
             let noticeTitle = json[indexPath.row]["title"].stringValue as String!
-            titleNotice.text = NSString(format: noticeTitle, NSHTMLTextDocumentType)
+            titleNotice.text = noticeTitle
+            //titleNotice.sizeToFit()
         }
         
         //colocando el nombre del autor
@@ -154,16 +172,6 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
             avatarAutor.image = self.imageAuthor[indexPath.row]?
             avatarAutor.layer.cornerRadius = 20
             avatarAutor.clipsToBounds = true
-        }
-        
-        //creando la estructura y efectos de la celda
-        if let containerNotice = cell.viewWithTag(6) as UIView! {
-            containerNotice.layer.cornerRadius = 3
-            containerNotice.clipsToBounds = true
-            containerNotice.layer.shadowColor = UIColor.blackColor().CGColor
-            containerNotice.layer.shadowOffset = CGSizeMake(15.0,15.0);
-            containerNotice.layer.borderWidth = 0.5
-            containerNotice.layer.borderColor = UIColor(red:188.0/255.0, green:188.0/255.0, blue:188.0/255.0,alpha:0.4).CGColor
         }
         return cell
     }
