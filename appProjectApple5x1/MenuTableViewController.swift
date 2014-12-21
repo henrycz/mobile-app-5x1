@@ -33,15 +33,15 @@ class MenuTableViewController: UITableViewController {
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CELL")
             cell!.backgroundColor = UIColor.clearColor()
-            cell!.imageView.frame = CGRectMake(3,2, 20, 25)
-            cell!.textLabel.textColor = UIColor.whiteColor()
+            cell!.imageView?.frame = CGRectMake(3,2, 20, 25)
+            cell!.textLabel?.textColor = UIColor.whiteColor()
             let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
             selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
             cell!.selectedBackgroundView = selectedBackgroundView
         }
     
-        cell!.imageView.image = UIImage(named: iconData[indexPath.row])
-        cell!.textLabel.text = tableData[indexPath.row]
+        cell!.imageView?.image = UIImage(named: iconData[indexPath.row])
+        cell!.textLabel?.text = tableData[indexPath.row]
         
         return cell!
     }
