@@ -54,8 +54,8 @@ class detailMainCtrl: UIViewController, UIWebViewDelegate {
         
         let URLautor = json["author"]["avatar"].stringValue
         let URLautorAcentos = URLautor?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let authorData = NSData(contentsOfURL: NSURL(string: URLautorAcentos as String!))
-        let authorImage = UIImage(data: authorData)
+        let authorData = NSData(contentsOfURL: NSURL(string: URLautorAcentos as String!)!)
+        let authorImage = UIImage(data: authorData!)
         let imageView = UIImageView(image:authorImage)
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         imageView.layer.frame = CGRectMake(0, 0, 40, 40);
@@ -162,12 +162,12 @@ class detailMainCtrl: UIViewController, UIWebViewDelegate {
         let titleNotice = json["title"].stringValue as String!
         let textShare = "\(titleNotice) vía @Apple5x1"
         let URLimages = json["featured_image"]["attachment_meta"]["sizes"]["featured4"]["url"].stringValue as String!
-        let imageData = NSData(contentsOfURL: NSURL(string: URLimages as String!))
-        let imageShare = UIImage(data: imageData)
-        let shareNotice:NSArray = [textShare, imageShare]
+        let imageData = NSData(contentsOfURL: NSURL(string: URLimages as String!)!)
+        let imageShare = UIImage(data: imageData!)
+       // let shareNotice:NSArray = [textShare, imageShare]
         
-        let activityShare = UIActivityViewController(activityItems: shareNotice, applicationActivities: nil)
-        self.presentViewController(activityShare, animated: true, completion: nil)
+       // let activityShare = UIActivityViewController(activityItems: shareNotice, applicationActivities: nil)
+       // self.presentViewController(activityShare, animated: true, completion: nil)
     }
     
 }

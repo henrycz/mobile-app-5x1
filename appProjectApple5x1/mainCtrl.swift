@@ -10,6 +10,10 @@ import UIKit
 
 //url a la que se conecta para extraer datos en formato JSON
 let kURL = "http://www.apple5x1.es/wp-json/posts?filter[cat]=21"
+//let kURL = "http://localhost:3000/apple5x1.json"
+let mainQueue = dispatch_get_main_queue()
+let diffQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
 
 class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, SideMenuDelegate{
     var dataJSON = [NSDictionary]()
@@ -31,13 +35,14 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
         //diseño del grupo de botones de la parte superior de la pantalla
         groupButton.layer.cornerRadius = 3
         groupButton.clipsToBounds = true
+        
+        
+        JSONrequest(kURL)
+        
 
         //instaciando el menu en esta view
         sideMenu = SideMenu(sourceView: self.view)
         sideMenu!.delegate = self
-
-        //llamando funcion que hace la consulta AJAX a la API
-        JSONrequest(kURL)
         
         //colocando el logo en el navigationBar
         let logoApple5x1 = UIImage(named: "apple5x1.png")
@@ -51,34 +56,24 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
     }
     
     func JSONrequest(urlPath: String) {
-        
-        let url: NSURL = NSURL(string: urlPath)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
-            if(error != nil) {
-                //Si hay un error en la solicitud web, imprimirlo en la consola
-                println(error.localizedDescription)
-            }
-            var err: NSError?
-            var resultJson = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as [NSDictionary]!
-            if(err != nil) {
-                //Si hay un error al analizar JSON, imprimirlo en la consola
-                println("JSON Error \(err!.localizedDescription)")
-            }
-            dispatch_async(dispatch_get_main_queue(), {
-                //pasando los datos de la peticion a una variable global
-                self.dataJSON =  resultJson
-                //recargar la tableView para que genere las celdas
-                self.tableView?.reloadData()
-                dispatch_async(dispatch_get_main_queue(), {
-                    //recargar la tableView de nuevo para que muestre ya los datos en las celdas
-                    self.tableView?.reloadData()
-                    //deteniendo animacion del indicador de estado y ocultandola
-                    self.loadIndicator.stopAnimating()
-                    self.loadIndicator.hidden = true
-                })
-            })
+        let url: NSURL = NSURL(string: urlPath)!
+        let request: NSURLRequest = NSURLRequest(URL: url)
+        let sessionConf:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionConf)
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             
+            var urlResponse:NSHTTPURLResponse = response as NSHTTPURLResponse
+            if(urlResponse.statusCode == 200){
+                var err: NSError?
+                
+                self.dataJSON = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as [NSDictionary]!
+                self.tableView?.reloadData()
+                
+                if(err != nil) {
+                    //Si hay un error al analizar JSON, imprimirlo en la consola
+                    println("JSON Error \(err!.localizedDescription)")
+                }
+            }
         })
         task.resume()
     }
@@ -102,7 +97,6 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
     }
     
     /////////////////////definiendo el numero de registros que mostrara la tabla///////////////
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataJSON.count
     }
@@ -110,9 +104,8 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
     /////////////////////definiendo la estructura de la celda
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("Celda") as UITableViewCell
-        cell.setNeedsDisplay()
         // usando el JSON que se obtuvo de internet y instanciandolo con la libreria swiftify para mejor manejo
-        let json = JSON(object: self.dataJSON)
+        let json = JSON(object: self.dataJSON[indexPath.row])
         
         //creando la estructura y efectos de la celda
         if let containerNotice = cell.viewWithTag(6) as UIView! {
@@ -124,61 +117,77 @@ class mainCtrl: UIViewController, UITableViewDataSource, UITableViewDelegate, Si
             containerNotice.layer.borderColor = UIColor(red:226.0/255.0, green:226.0/255.0, blue:226.0/255.0,alpha:1).CGColor
         }
         
-        
         //obteniendo tamaño de la pantalla
-        let screenWidth = screenSize.width
-        
+        let sessionConf:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionConf)
+        let screenWidth = self.screenSize.width
         //comprobando el tamaño de la pantalla para cargar imagenes de la noticia con distintas resoluciones para cada iphone
         //iphone 4s, 5, 5s, 5c
-        if(screenWidth == 320.0){
-            let URLimages = json[indexPath.row]["featured_image"]["attachment_meta"]["sizes"]["featured3"]["url"].stringValue
-            let imageData = NSData(contentsOfURL: NSURL(string: URLimages as String!))
-            let image = UIImage(data: imageData)
-            self.imageNotice[indexPath.row] = image
-        //iphone 6, 6 plus
-        }else if(screenWidth >= 375.0){
-            let URLimages = json[indexPath.row]["featured_image"]["attachment_meta"]["sizes"]["featured4"]["url"].stringValue
-            let imageData = NSData(contentsOfURL: NSURL(string: URLimages as String!))
-            let image = UIImage(data: imageData)
-            self.imageNotice[indexPath.row] = image
-        }
+            let URLimages = json["featured_image"]["attachment_meta"]["sizes"]["featured3"]["url"].stringValue
+            let dataURL = NSURL(string: URLimages!)
+            let imgUrlRequest = NSURLRequest(URL: dataURL!)
+            let task = session.dataTaskWithRequest(imgUrlRequest, completionHandler: {data, response, error -> Void in
+                var urlResponse:NSHTTPURLResponse = response as NSHTTPURLResponse
+                
+                if urlResponse.statusCode == 200 {
+                    dispatch_async(dispatch_get_main_queue(),{
+                        //colocando la imagen de la noticia
+                        if let imgNotice = cell.viewWithTag(2) as? UIImageView {
+                            imgNotice.image = UIImage(data: data)
+                            self.loadIndicator.stopAnimating()
+                            self.loadIndicator.hidden = true
+                        }
+                        if let titleNotice = cell.viewWithTag(1) as? UILabel {
+                            let noticeTitle = json["title"].stringValue as String!
+                            titleNotice.text = noticeTitle
+                        }
+                        if let author = cell.viewWithTag(5) as? UILabel {
+                            let nameAuthor = json["author"]["username"].stringValue as String!
+                            author.text = nameAuthor
+                        }
+                    })
+                }else{
+                    println("Algo anduvo mal")
+                }
+            })
+            task.resume()
+        
+        
+        let URLavatar = json["author"]["avatar"].stringValue
+        let URLavatarAcentos = URLavatar?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let dataURLavatar = NSURL(string: URLavatarAcentos!)
+        let imgAvatarRequest = NSURLRequest(URL: dataURLavatar!)
+        let taskAvatar = session.dataTaskWithRequest(imgAvatarRequest, completionHandler: {data, response, error -> Void in
+            var urlResponse:NSHTTPURLResponse = response as NSHTTPURLResponse
+            
+            if urlResponse.statusCode == 200 {
+                dispatch_async(dispatch_get_main_queue(),{
+                    //colocando la imagen del avatar                    
+                    if let avatarAutor = cell.viewWithTag(4) as? UIImageView {
+                        avatarAutor.image =  UIImage(data: data)
+                        avatarAutor.layer.cornerRadius = 20
+                        avatarAutor.clipsToBounds = true
+                        self.loadIndicator.stopAnimating()
+                        self.loadIndicator.hidden = true
+                    }
+                })
+            }else{
+                println("Algo anduvo mal")
+            }
+        })
+        taskAvatar.resume()
         
         //extraendo imagen del autor de la noticia del JSON
-        let URLauthor = json[indexPath.row]["author"]["avatar"].stringValue
-        let URLauthorAcentos = URLauthor?.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let authorData = NSData(contentsOfURL: NSURL(string: URLauthorAcentos as String!))
-        let imgAuthor = UIImage(data: authorData)
-        self.imageAuthor[indexPath.row] = imgAuthor
         
-        //colocando el titulo de la noticia
-        if let titleNotice = cell.viewWithTag(1) as? UITextView {
-            let noticeTitle = json[indexPath.row]["title"].stringValue as String!
-            titleNotice.text = noticeTitle
-            //titleNotice.sizeToFit()
-        }
-        
-        //colocando el nombre del autor
-        if let nameAuthor = cell.viewWithTag(5) as? UILabel {
-            nameAuthor.text = (json[indexPath.row]["author"]["name"].stringValue)
-        }
-        
-        //colocando la imagen de la noticia
-        if let imgNotice = cell.viewWithTag(2) as? UIImageView {
-            imgNotice.image = imageNotice[indexPath.row]?
-        }
+
         
         //colocando la imagen del autor
-        if let avatarAutor = cell.viewWithTag(4) as? UIImageView {
-            avatarAutor.image = self.imageAuthor[indexPath.row]?
-            avatarAutor.layer.cornerRadius = 20
-            avatarAutor.clipsToBounds = true
-        }
+        //if let avatarAutor = cell.viewWithTag(4) as? UIImageView {
+        //    avatarAutor.image = self.imageAuthor[indexPath.row]?
+        //    avatarAutor.layer.cornerRadius = 20
+        //    avatarAutor.clipsToBounds = true
+        //}
         return cell
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
     }
     
     
